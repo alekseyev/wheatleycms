@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.contenttypes',
     'django.contrib.sitemaps',
+    'django.contrib.staticfiles',
     'urlrouter',
     'minicms',
     'blog',
@@ -59,12 +60,11 @@ INSTALLED_APPS = (
     'djangotoolbox',
     'google_analytics',
     'google_cse',
-    'mediagenerator',
     'robots',
-    'simplesocial',
     'redirects',
     'autoload',
     'dbindexer',
+    'tinymce',
 )
 
 if has_djangoappengine:
@@ -84,8 +84,6 @@ MIDDLEWARE_CLASSES = (
     # This loads the index definitions, so it has to come first
     'autoload.middleware.AutoloadMiddleware',
 
-    'mediagenerator.middleware.MediaMiddleware',
-
     'django.middleware.common.CommonMiddleware',
     'djangotoolbox.middleware.RedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -102,38 +100,33 @@ URL_ROUTE_HANDLERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
+    'django.core.context_processors.static',
     'minicms.context_processors.cms',
 )
 
-USE_I18N = False
+LANGUAGE_CODE='en'
+USE_I18N = True
+USE_L10N = True 
 
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
-MEDIA_BUNDLES = (
-    ('main.css',
-        'design.sass',
-        'rest.css',
-    ),
+if DEBUG: 
+    STATIC_URL = '/devstatic/'
+else:
+    STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'sitestatic')
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-ROOT_MEDIA_FILTERS = {
-    'js': 'mediagenerator.filters.closure.Closure',
-    'css': 'mediagenerator.filters.yuicompressor.YUICompressor',
-}
-
-CLOSURE_COMPILER_PATH = os.path.join(os.path.dirname(__file__),
-                                     '.webutils', 'compiler.jar')
-
-YUICOMPRESSOR_PATH = os.path.join(os.path.dirname(__file__),
-                                  '.webutils', 'yuicompressor.jar')
-
-MEDIA_DEV_MODE = DEBUG
-DEV_MEDIA_URL = '/devmedia/'
-PRODUCTION_MEDIA_URL = '/media/'
-
-GLOBAL_MEDIA_DIRS = (
+STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), 'static'),
 )
 
@@ -142,6 +135,12 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 ROOT_URLCONF = 'urls'
 
 NON_REDIRECTED_PATHS = ('/admin/',)
+
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced', 
+    'theme_advanced_toolbar_location': 'top',
+    'relative_urls': False,
+}
 
 try:
     from settings_local import *

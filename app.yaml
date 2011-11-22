@@ -22,17 +22,12 @@ handlers:
 - url: /_ah/stats/.*
   script: djangoappengine.appstats.application
 
-- url: /blank.html
-  static_files: blank.html
-  upload: blank.html
-
 - url: /media/admin
   static_dir: django/contrib/admin/media/
   expiration: '0'
 
-- url: /media
-  static_dir: _generated_media/
-  expiration: '365d'
+- url: /static
+  static_dir: sitestatic/
 
 - url: /.*
   script: djangoappengine.main.application

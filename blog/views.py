@@ -6,7 +6,6 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render
 from django.utils.feedgenerator import Atom1Feed
 from django.views.generic import ListView
-from simplesocial.api import wide_buttons, narrow_buttons
 
 def review(request, review_key):
     post = get_object_or_404(Post, review_key=review_key)
@@ -74,10 +73,8 @@ class LatestEntriesFeed(Feed):
         url = 'http%s://%s%s' % ('s' if self._request.is_secure() else '',
                                  self._request.get_host(),
                                  post.get_absolute_url())
-        header = wide_buttons(self._request, post.title, post.get_absolute_url())
-        footer = narrow_buttons(self._request, post.title, post.get_absolute_url())
-        footer += '<p><a href="%s#disqus_thread">Leave a comment</a></p>' % url
-        return header + post.rendered_content + footer
+        footer = '<p><a href="%s#disqus_thread">Leave a comment</a></p>' % url
+        return post.rendered_content + footer
 
     def item_author_name(self, post):
         return post.author.get_full_name()

@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-{% load disqus_tags media simplesocial %}
+{% load disqus_tags %}
 {% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
 
 {% block extra-head %}
@@ -20,10 +20,6 @@
 <div class="like-it">
 <h4>Do you like this post?</h4>
 <p>Subscribe for free to receive new posts via RSS or email. <a class="join-button" href="{{ blog.get_feed_url }}" rel="alternate" title="Receive updates (it's free!)" target="_blank" type="application/rss+xml">Join!</a></p>
-</div>
-
-<div class="share-this">
-{% narrow_social_buttons request post.title post.get_absolute_url %}
 </div>
 
 <div class="post-footer">

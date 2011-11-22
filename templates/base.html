@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load media cms blog google_cse google_analytics %}
+{% load cms blog google_cse google_analytics %}
 <html dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}"
       lang="{% firstof LANGUAGE_CODE 'en' %}">
   <head>
@@ -9,7 +9,7 @@
       {% blog_feeds %}
     {% endblock %}
     {% block css %}
-      {% include_media 'main.css' %}
+      <link href="{{ STATIC_URL }}/main.css" rel="stylesheet" type="text/css" />
     {% endblock %}
 
     {% block preload_js %}

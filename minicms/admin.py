@@ -2,9 +2,10 @@ from .models import Block, Page
 from django.contrib import admin
 from django.contrib.admin.widgets import AdminTextareaWidget
 from django.db import models
+from tinymce.widgets import AdminTinyMCE
 
 # The default TextField doesn't have enough rows
-class UsableTextarea(AdminTextareaWidget):
+class UsableTextarea(AdminTinyMCE):
     def __init__(self, attrs=None):
         default_attrs = {'rows': '32'}
         if attrs:
@@ -22,7 +23,7 @@ class PageAdmin(BaseAdmin):
     search_fields = ('url',)
     ordering = ('url',)
 
-class BlockAdmin(BaseAdmin):
+class BlockAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     ordering = ('name',)

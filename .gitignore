@@ -6,7 +6,7 @@
 *.pyo
 *.swp
 *.tmp
-_generated_media*
+sitestatic
 desktop.ini
 settings_overrides.py
 nbproject
@@ -15,9 +15,9 @@ django
 django_mongodb_engine
 djangotoolbox
 dbindexer
-mediagenerator
 pyjs
 pymeta
 pyvascript
 settings_local.py
 autoload
+tinymce

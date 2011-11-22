@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load blog cms media %}
+{% load blog cms %}
 {% block title %}{{ blog.title }}{% endblock %}
 
 {% block js %}
@@ -13,7 +13,7 @@
 {% if blog.feedburner_id %}
 <div class="sidebar-block">
 <form action="http://feedburner.google.com/fb/a/mailverify" target="popupwindow" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri={{ blog.feedburner_id }}', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
-  <a href="{{ blog.feed_redirect_url }}" rel="alternate" title="Subscribe to blog (it's free)" type="application/rss+xml"><img alt="RSS" src="{% media_url 'simplesocial/icons32/rss.png' %}" /></a><a href="{{ blog.feed_redirect_url }}" rel="alternate" title="Subscribe to blog (it's free)" type="application/rss+xml"><strong>Subscribe to blog (it's free)</strong></a>
+  <a href="{{ blog.feed_redirect_url }}" rel="alternate" title="Subscribe to blog (it's free)" type="application/rss+xml"><img alt="RSS" src="{{ STATIC_URL }}/simplesocial/icons32/rss.png" /></a><a href="{{ blog.feed_redirect_url }}" rel="alternate" title="Subscribe to blog (it's free)" type="application/rss+xml"><strong>Subscribe to blog (it's free)</strong></a>
 </form>
 </div>
 
