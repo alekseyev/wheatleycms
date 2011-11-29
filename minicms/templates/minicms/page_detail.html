@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load simplesocial %}
 {% block title %}{{ page.title }}{% endblock %}
 
 {% block extra-head %}
@@ -17,7 +16,6 @@
 
 {% if page.show_share_buttons %}
 {% with page.title|add:' | '|add:site_name as title %}
-{% wide_social_buttons request title page.get_absolute_url %}
 {% endwith %}
 {% endif %}
 
@@ -25,7 +23,6 @@
 
 {% if page.show_share_buttons %}
 {% with page.title|add:' | '|add:site_name as title %}
-{% narrow_social_buttons request title page.get_absolute_url %}
 {% endwith %}
 {% endif %}
 {% endblock %}
