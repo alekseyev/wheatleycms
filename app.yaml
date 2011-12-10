@@ -23,7 +23,7 @@ handlers:
   script: djangoappengine.appstats.application
 
 - url: /static
-  static_dir: sitestatic/
+  static_dir: sitestatic
 
 - url: /.*
   script: djangoappengine.main.application
