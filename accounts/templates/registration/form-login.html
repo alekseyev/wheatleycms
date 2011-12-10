@@ -1,0 +1,23 @@
+<form method="post" action="/accounts/login/">
+{% csrf_token %}
+
+<div>
+    <label for="username">Username</label>
+    <input type="text" name="username" value="" id="username" />
+</div>
+<div>
+    <label for="password">Password</label>
+    <input type="password" name="password" value="" id="password" />
+</div>
+
+<input type="submit" value="login" />
+{% if request.path == "/accounts/login/" %}
+<input type="hidden" name="next" value="/" />
+{% else %}
+<input type="hidden" name="next" value="{{ request.get_full_path }}" />
+{% endif %}
+</form>
+
+<ul>
+    <li><a href="/accounts/register/">Register</a></li>
+</ul>

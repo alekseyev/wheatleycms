@@ -2,6 +2,9 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 from blog.models import PostsSitemap
 from minicms.models import PagesSitemap
+from django.contrib import admin
+
+admin.autodiscover()
 
 handler500 = 'djangotoolbox.errorviews.server_error'
 
@@ -13,6 +16,7 @@ sitemaps = {
 urlpatterns = patterns('',
     (r'^admin/', include('urlsadmin')),
     (r'^blog/', include('blog.urls')),
+    (r'^accounts/', include('accounts.urls')),
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
         {'sitemaps': sitemaps}),
     (r'^search$', 'google_cse.views.search'),
