@@ -1,16 +1,17 @@
+{% load i18n %}
 <form method="post" action="/accounts/login/">
 {% csrf_token %}
 
 <div>
-    <label for="username">Username</label>
+    <label for="username">{% trans "Username" %}</label>
     <input type="text" name="username" value="" id="username" />
 </div>
 <div>
-    <label for="password">Password</label>
+    <label for="password">{% trans "Password" %}</label>
     <input type="password" name="password" value="" id="password" />
 </div>
 
-<input type="submit" value="login" />
+<input type="submit" value="{% trans "Log in" %}" />
 {% if request.path == "/accounts/login/" %}
 <input type="hidden" name="next" value="/" />
 {% else %}
@@ -19,6 +20,6 @@
 </form>
 
 <ul>
-    <li><a href="/accounts/register/">Register</a></li>
-    <li><a href="/accounts/reset/">Forgot password?</a></li>
+    <li><a href="/accounts/register/">{% trans "Register" %}</a></li>
+    <li><a href="/accounts/reset/">{% trans "Reset my password" %}</a></li>
 </ul>

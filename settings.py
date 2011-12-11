@@ -33,6 +33,11 @@ AUTOLOAD_SITECONF = 'dbindexes'
 SITE_NAME = 'My site'
 SITE_DESCRIPTION = ''
 SITE_COPYRIGHT = ''
+
+LANGUAGE_CODE='en'
+USE_I18N = True
+USE_L10N = True 
+
 DISQUS_SHORTNAME = ''
 GOOGLE_ANALYTICS_ID = ''
 # Get the ID from the CSE "Basics" control panel ("Search engine unique ID")
@@ -107,10 +112,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'minicms.context_processors.cms',
 )
-
-LANGUAGE_CODE='en'
-USE_I18N = True
-USE_L10N = True 
 
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
