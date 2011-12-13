@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block content %}
 
-{% if form.errors %}
+{% if incorrect_login %}
 <p>{% trans "Your username and password didn't match. Please try again." %}</p>
 {% endif %}
 

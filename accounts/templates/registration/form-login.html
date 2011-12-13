@@ -13,9 +13,9 @@
 
 <input type="submit" value="{% trans "Log in" %}" />
 {% if request.path == "/accounts/login/" %}
-<input type="hidden" name="next" value="/" />
+    <input type="hidden" name="next" value="{{ request.GET.next|default:'/' }}" />
 {% else %}
-<input type="hidden" name="next" value="{{ request.get_full_path }}" />
+    <input type="hidden" name="next" value="{{ request.get_full_path }}" />
 {% endif %}
 </form>
 

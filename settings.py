@@ -30,7 +30,7 @@ DATABASES['native'] = DATABASES['default']
 DATABASES['default'] = {'ENGINE': 'dbindexer', 'TARGET': 'native'}
 AUTOLOAD_SITECONF = 'dbindexes'
 
-SITE_NAME = 'My site'
+SITE_NAME = 'GosuCMS Demo Site'
 SITE_DESCRIPTION = ''
 SITE_COPYRIGHT = ''
 
