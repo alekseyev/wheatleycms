@@ -1,5 +1,6 @@
 .settings
 .gaedata
+.sass-cache
 *~
 *.orig
 *.pyc
