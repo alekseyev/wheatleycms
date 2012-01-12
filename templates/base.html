@@ -1,69 +1,63 @@
 <!DOCTYPE html>
 {% load cms blog google_cse google_analytics %}
 <html dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}"
-      lang="{% firstof LANGUAGE_CODE 'en' %}">
-  <head>
+    lang="{% firstof LANGUAGE_CODE 'en' %}">
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{% block title %}{% endblock %} | {{ site_name }}</title>
     {% block blogfeeds %}
-      {% blog_feeds %}
+        {% blog_feeds %}
     {% endblock %}
     {% block css %}
-      <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
-      <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/print.css" type="text/css" media="print">
-      <!--[if lt IE 8]>
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection">
-      <![endif]-->
-      <link href="{{ STATIC_URL }}main.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/print.css" type="text/css" media="print">
+        <!--[if lt IE 8]>
+            <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection">
+        <![endif]-->
+        <link href="{{ STATIC_URL }}main.css" rel="stylesheet" type="text/css" />
     {% endblock %}
 
     {% block preload_js %}
-      {% google_analytics_code %}
+        {% google_analytics_code %}
     {% endblock %}
 
     {% block extra-head %}{% endblock %}
-  </head>
+</head>
 
-  <body>
-    <div id="header">
-      <a id="logo" href="/"><img alt="All Buttons Pressed" src="http://lh5.ggpht.com/_8v0Ka-uUQOY/S7yqfkqywAI/AAAAAAAAAFk/2yLtGysnSiU/logo%20%282%29.png" /></a>
-      {% google_search_form %}
-      <ul class="menu">
-        {% show_menu %}
-      </ul>
-    </div>
-
-    <div class="columns">
-      <div id="content" class="column">
-        {% block content-header %}
-          {% if error %}<div class="error">{{ error }}</div>{% endif %}
-          {% if info %}<div class="info">{{ info }}</div>{% endif %}
-          {% if messages %}
-            {% for message in messages %}
-              <div class="info">{{ message }}</div>
-            {% endfor %}
-          {% endif %}
-        {% endblock %}
-
-        <div id="cse" style="width:100%; display:inline;"></div>
-
-        {% block content %}{% endblock %}
-      </div>
-
-      <div id="sidebar" class="column">
-        {% block sidebar %}
-          {% show_block 'sidebar' %}
-        {% endblock %}
-      </div>
-    </div>
-
-    <div id="footer">
-      <p>
-        Copyright {% now "Y" %} {{ site_copyright }}<br />
-        Powered by <a href="http://www.allbuttonspressed.com/projects/django-nonrel">Django-nonrel</a>,
-        <a href="http://code.google.com/appengine/">App Engine</a>, and
-        <a href="http://www.allbuttonspressed.com/projects/allbuttonspressed">All Buttons Pressed</a>
-      </p>
+<body>
+    <div class="container">
+        <div class="span-24" id="header">
+            <a id="logo" href="/"><img alt="All Buttons Pressed" src="http://lh5.ggpht.com/_8v0Ka-uUQOY/S7yqfkqywAI/AAAAAAAAAFk/2yLtGysnSiU/logo%20%282%29.png" /></a>
+            {% google_search_form %}
+            <ul class="menu">
+                {% show_menu %}
+            </ul>
+        </div>
+        <div class="span-18">
+            {% block content-header %}
+                {% if error %}<div class="error">{{ error }}</div>{% endif %}
+                {% if info %}<div class="info">{{ info }}</div>{% endif %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="info">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endblock %}
+            <div id="cse" style="width:100%; display:inline;"></div>
+            {% block content %}{% endblock %}
+        </div>
+        <div class="span-6 last">
+            {% block sidebar %}
+                {% show_block 'sidebar' %}
+            {% endblock %}
+        </div>
+        <div class="span-24" id="footer">
+            Copyright {% now "Y" %} {{ site_copyright }}<br />
+            Powered by <a href="http://www.allbuttonspressed.com/projects/django-nonrel">Django-nonrel</a>,
+            <a href="http://code.google.com/appengine/">App Engine</a>, and
+            <a href="http://www.allbuttonspressed.com/projects/allbuttonspressed">All Buttons Pressed</a>
+        </div>
     </div>
 
     {% block js %}
