@@ -37,10 +37,10 @@
         <div class="span-18">
             {% block content-header %}
                 {% if error %}<div class="error">{{ error }}</div>{% endif %}
-                {% if info %}<div class="info">{{ info }}</div>{% endif %}
+                {% if info %}<div class="notice">{{ info }}</div>{% endif %}
                 {% if messages %}
                     {% for message in messages %}
-                        <div class="info">{{ message }}</div>
+                        <div class="notice">{{ message }}</div>
                     {% endfor %}
                 {% endif %}
             {% endblock %}
