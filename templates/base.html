@@ -32,13 +32,15 @@
                 <div class="span-24" id="header">
                     <h1 id="site-title"><a href="/">{{ site_name }}</a></h1>
                     {% google_search_form %}
-                    <ul class="menu">
-                        {% show_menu %}
-                    </ul>
                 </div>
             </div>
         </div>
         <div class="container">
+            <div class="span-24" id="navigation">
+                <ul class="menu">
+                    {% show_menu %}
+                </ul>
+            </div>
             <div class="span-18" id="content">
                 <div class="content-area">
                     {% block content-header %}

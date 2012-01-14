@@ -7,6 +7,7 @@ body
     height: 100%
     color: #333
     background: #F0F0F0
+    font-size: 13px
 
 #wrap
     min-height: 100%
@@ -109,18 +110,25 @@ h1, h2, h3, h4
 .menu
     clear: both
     list-style: none
-    text-align: center
     margin: 0
-    padding: 25px 0 0 0
+    padding: 10px
+
+    a
+        color: #007241
+        text-decoration: none
 
     li
-        display: inline
-        margin: 0 25px 0 0
-        font-size: 18px
+        display: inline-block
+        width: 100px
+        height: 22px
+        background: #36D792
+        text-align: center
+        padding-top: 3px
 
-        &.active-menu-item
-            font-weight: bold
-            color: black
+        &.active-menu-item, &:hover
+            background: #007241
+            a
+                color: #36D792
 
 h1
     margin-bottom: 15px
