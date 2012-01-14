@@ -64,11 +64,6 @@ a:hover {
   color: #66a3d2;
 }
 
-#header a, #header a:hover {
-  text-decoration: none;
-  color: #f0f0f0;
-}
-
 h1, h2, h3, h4 {
   color: #1b1bb3;
 }
@@ -84,6 +79,10 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
 #site-title {
   margin-left: 350px;
   margin-top: 50px;
+}
+#site-title a, #site-title a:hover {
+  text-decoration: none;
+  color: #f0f0f0;
 }
 
 #search-form {
@@ -126,6 +125,14 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
   margin: 0;
   padding: 10px;
 }
+.menu a {
+  color: #007241;
+  text-decoration: none;
+}
+.menu a:hover {
+  color: white;
+  text-decoration: underline;
+}
 .menu li {
   display: inline-block;
   width: 100px;
@@ -134,15 +141,14 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
   text-align: center;
   padding-top: 3px;
 }
-.menu li.active-menu-item, .menu li:hover {
+.menu li.active-menu-item {
   background: #007241;
 }
-
-#header .menu a {
-  color: #007241;
-}
-#header .menu li.active-menu-item a, #header .menu li:hover a {
+.menu li.active-menu-item a {
   color: #36d792;
+}
+.menu li.active-menu-item a:hover {
+  color: white;
 }
 
 h1 {
