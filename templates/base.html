@@ -26,37 +26,48 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="span-24" id="header">
-            <a id="logo" href="/"><img alt="All Buttons Pressed" src="http://lh5.ggpht.com/_8v0Ka-uUQOY/S7yqfkqywAI/AAAAAAAAAFk/2yLtGysnSiU/logo%20%282%29.png" /></a>
-            {% google_search_form %}
-            <ul class="menu">
-                {% show_menu %}
-            </ul>
+    <div id="wrap">
+        <div id="header-wrap">
+            <div class="container">
+                <div class="span-24" id="header">
+                    <h1 id="site-title"><a href="/">{{ site_name }}</a></h1>
+                    {% google_search_form %}
+                    <ul class="menu">
+                        {% show_menu %}
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="span-18">
-            {% block content-header %}
-                {% if error %}<div class="error">{{ error }}</div>{% endif %}
-                {% if info %}<div class="notice">{{ info }}</div>{% endif %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="notice">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-            {% endblock %}
-            <div id="cse" style="width:100%; display:inline;"></div>
-            {% block content %}{% endblock %}
+        <div class="container">
+            <div class="span-18" id="content">
+                <div class="content-area">
+                    {% block content-header %}
+                        {% if error %}<div class="error">{{ error }}</div>{% endif %}
+                        {% if info %}<div class="notice">{{ info }}</div>{% endif %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="notice">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endblock %}
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            <div class="span-6 last" id="sidebar">
+                <div class="content-area">
+                    {% block sidebar %}
+                        {% show_block 'sidebar' %}
+                    {% endblock %}
+                </div>
+            </div>
         </div>
-        <div class="span-6 last">
-            {% block sidebar %}
-                {% show_block 'sidebar' %}
-            {% endblock %}
-        </div>
-        <div class="span-24" id="footer">
-            Copyright {% now "Y" %} {{ site_copyright }}<br />
-            Powered by <a href="http://www.allbuttonspressed.com/projects/django-nonrel">Django-nonrel</a>,
-            <a href="http://code.google.com/appengine/">App Engine</a>, and
-            <a href="http://www.allbuttonspressed.com/projects/allbuttonspressed">All Buttons Pressed</a>
+    </div>
+
+    <div id="footer-wrap">
+        <div class="container" id="footer">
+            <div class="span-24">
+                <div>Copyright © {% now "Y" %} {{ site_copyright }}</div>
+            </div>
         </div>
     </div>
 

@@ -1,54 +1,61 @@
-.highlight {
-  margin-bottom: 18px;
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  color: #333333;
+  background: #f0f0f0;
+}
+
+#wrap {
+  min-height: 100%;
 }
 
 #header, #footer {
   font-size: 11px;
+  color: #f0f0f0;
+}
+
+#header-wrap {
+  background: #66a3d2;
 }
 
 #header {
-  padding: 13px 0 0;
-  margin: 0 auto 20px;
-  overflow: hidden;
+  height: 135px;
+  background: #033e6b;
 }
 
-.columns {
-  margin: 0 auto 0;
-  overflow: hidden;
-}
-
-.column {
-  float: left;
-  padding: 0;
-  margin: 0;
-}
-
-#footer {
-  margin: 0 auto 0;
-  padding: 40px 0;
-}
-
-#header, #footer {
-  width: 970px;
-}
-
-.columns {
-  padding: 0px 25px;
-  width: 920px;
+#main-bg {
+  background: white;
+  height: 100%;
+  margin: 0 auto;
+  width: 950px;
 }
 
 #content {
-  width: 635px;
-  margin-right: 35px;
+  padding-bottom: 50px;
+  overflow: auto;
 }
 
-#sidebar {
-  width: 250px;
-  float: right;
+#footer-wrap {
+  position: relative;
+  clear: both;
+  margin-top: -50px;
+  background: #61d7a4;
 }
 
-body {
-  color: #36393d;
+#footer {
+  height: 50px;
+  padding: 10px 0;
+  background: #007241;
+}
+#footer * {
+  text-align: center;
+}
+
+.content-area {
+  padding: 10px;
 }
 
 .relevant-projects, .recent-blog-posts {
@@ -57,35 +64,33 @@ body {
 }
 
 a {
-  color: #1985b5;
+  color: #0b61a4;
 }
-
 a:hover {
   text-decoration: underline;
+  color: #66a3d2;
 }
 
-#header {
-  height: 135px;
-  border-bottom: 4px solid #36393d;
-  margin-bottom: 50px;
-  margin-top: 20px;
+#header a, #header a:hover {
+  text-decoration: none;
+  color: #f0f0f0;
 }
 
-#header a, .post h1 a {
-  color: #36393d;
+h1, h2, h3, h4 {
+  color: #1b1bb3;
+}
+h1 a, h2 a, h3 a, h4 a {
+  color: #1b1bb3;
   text-decoration: none;
 }
-
-.post h1 a:hover {
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
+  color: #1b1bb3;
   text-decoration: underline;
 }
 
-#logo {
-  float: left;
+#site-title {
   margin-left: 350px;
-}
-#logo img {
-  width: 270px;
+  margin-top: 50px;
 }
 
 #search-form {
@@ -142,21 +147,12 @@ h1 {
   margin-bottom: 15px;
 }
 
-h2 a.external, h3 a.external {
-  color: #36393d;
-  text-decoration: none;
-}
-h2 a.external:hover, h3 a.external:hover {
-  text-decoration: underline;
-}
-
 .post {
   line-height: 1.6em;
 }
 
 .post-footer {
   padding: 5px;
-  background-color: #f0edde;
   margin-bottom: 50px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -214,14 +210,6 @@ h2 a.external:hover, h3 a.external:hover {
 }
 #blogroll ul li, #recent-blog-posts ul li {
   padding: 7px 0;
-}
-
-#footer {
-  margin-top: 20px;
-  border-top: 5px solid #36393d;
-}
-#footer * {
-  text-align: center;
 }
 
 .feed-widget {
