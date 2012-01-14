@@ -20,14 +20,7 @@ body
     background: #66A3D2
 
 #header
-    height: 135px
     background: #033E6B
-
-#main-bg
-    background: white
-    height: 100%
-    margin: 0 auto
-    width: 950px
 
 #content
     padding-bottom: $footer
@@ -108,14 +101,11 @@ h1, h2, h3, h4
     -moz-box-shadow: 0 1px 2px #999999
 
 .menu
+    font-size: 14px
     clear: both
     list-style: none
     margin: 0
     padding: 10px
-
-    a
-        color: #007241
-        text-decoration: none
 
     li
         display: inline-block
@@ -127,8 +117,13 @@ h1, h2, h3, h4
 
         &.active-menu-item, &:hover
             background: #007241
-            a
-                color: #36D792
+
+#header .menu 
+    a
+        color: #007241
+    li.active-menu-item, li:hover
+        a
+            color: #36D792
 
 h1
     margin-bottom: 15px

@@ -23,15 +23,7 @@ body {
 }
 
 #header {
-  height: 135px;
   background: #033e6b;
-}
-
-#main-bg {
-  background: white;
-  height: 100%;
-  margin: 0 auto;
-  width: 950px;
 }
 
 #content {
@@ -128,14 +120,11 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
 }
 
 .menu {
+  font-size: 14px;
   clear: both;
   list-style: none;
   margin: 0;
   padding: 10px;
-}
-.menu a {
-  color: #007241;
-  text-decoration: none;
 }
 .menu li {
   display: inline-block;
@@ -148,7 +137,11 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
 .menu li.active-menu-item, .menu li:hover {
   background: #007241;
 }
-.menu li.active-menu-item a, .menu li:hover a {
+
+#header .menu a {
+  color: #007241;
+}
+#header .menu li.active-menu-item a, #header .menu li:hover a {
   color: #36d792;
 }
 
