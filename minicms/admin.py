@@ -1,4 +1,4 @@
-from .models import Block, Page
+from .models import Block, Page, Menu
 from django.contrib import admin
 from django.contrib.admin.widgets import AdminTextareaWidget
 from django.db import models
@@ -28,5 +28,11 @@ class BlockAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     ordering = ('name',)
 
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+    ordering = ('name',)
+
 admin.site.register(Page, PageAdmin)
 admin.site.register(Block, BlockAdmin)
+admin.site.register(Menu, MenuAdmin)

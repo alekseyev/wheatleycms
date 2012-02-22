@@ -29,6 +29,13 @@ class Page(BaseContent):
 
 class Block(models.Model):
     name = models.CharField(max_length=200)
+    content = tinymce_models.HTMLField(blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+class Menu(models.Model):
+    name = models.CharField(max_length=200)
     content = models.TextField(blank=True)
 
     def __unicode__(self):

@@ -1,4 +1,4 @@
-from ..models import Block
+from ..models import Block, Menu
 from django.template import Library
 
 register = Library()
@@ -18,7 +18,7 @@ def show_menu(context, name='menu'):
 
     menu = []
     try:
-        for line in Block.objects.get(name=name).content.splitlines():
+        for line in Menu.objects.get(name=name).content.splitlines():
             line = line.rstrip()
             try:
                 title, url = line.rsplit(' ', 1)
