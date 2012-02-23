@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from django.contrib.messages import constants as message_constants
+
 # The following takes care of auto-configuring the database. You might want to
 # modify this to match your environment (i.e., without fallbacks).
 try:
@@ -137,6 +139,14 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 ROOT_URLCONF = 'urls'
 
 NON_REDIRECTED_PATHS = ('/admin/',)
+
+# When using django.contrib.messages, output warning and debug level messages with notice class
+# This makes it convinient to utilise Blueprint's error/notice/success/info CSS classes
+
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'notice',
+    message_constants.WARNING: 'notice',
+}
 
 TINYMCE_DEFAULT_CONFIG = {
     'theme': 'advanced', 

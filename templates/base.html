@@ -42,11 +42,9 @@
             <div class="span-18" id="content">
                 <div class="content-area">
                     {% block content-header %}
-                        {% if error %}<div class="error">{{ error }}</div>{% endif %}
-                        {% if info %}<div class="notice">{{ info }}</div>{% endif %}
                         {% if messages %}
                             {% for message in messages %}
-                                <div class="notice">{{ message }}</div>
+                                <div class="{{ message.tags }}">{{ message }}</div>
                             {% endfor %}
                         {% endif %}
                     {% endblock %}
