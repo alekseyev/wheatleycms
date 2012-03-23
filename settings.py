@@ -140,12 +140,14 @@ ROOT_URLCONF = 'urls'
 
 NON_REDIRECTED_PATHS = ('/admin/',)
 
-# When using django.contrib.messages, output warning and debug level messages with notice class
-# This makes it convinient to utilise Blueprint's error/notice/success/info CSS classes
+# When using django.contrib.messages, output messages with Twitter Bootstrap-friendly classes
 
 MESSAGE_TAGS = {
-    message_constants.DEBUG: 'notice',
-    message_constants.WARNING: 'notice',
+    message_constants.DEBUG: '',
+    message_constants.INFO: 'alert-info',
+    message_constants.SUCCESS: 'alert-success',
+    message_constants.WARNING: '',
+    message_constants.ERROR: 'alert-error',
 }
 
 TINYMCE_DEFAULT_CONFIG = {

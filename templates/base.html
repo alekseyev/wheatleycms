@@ -10,12 +10,9 @@
         {% blog_feeds %}
     {% endblock %}
     {% block css %}
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/print.css" type="text/css" media="print">
-        <!--[if lt IE 8]>
-            <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection">
-        <![endif]-->
+        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" type="text/css" media="screen, projection">
         <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet" type="text/css" />
+        {% google_analytics_code %}
     {% endblock %}
 
     {% block preload_js %}
@@ -28,44 +25,40 @@
 <body>
     <div id="wrap">
         <div id="header-wrap">
-            <div class="container">
-                <div class="span-24" id="header">
-                    <h1 id="site-title"><a href="/">{{ site_name }}</a></h1>
-                    {% google_search_form %}
-                    <ul class="menu">
-                        {% show_menu %}
-                    </ul>
-                </div>
+            <div class="container" id="header">
+                <h1 id="site-title"><a href="/">{{ site_name }}</a></h1>
+                {% google_search_form %}
+                <ul class="menu">
+                    {% show_menu %}
+                </ul>
             </div>
         </div>
-        <div class="container">
-            <div class="span-18" id="content">
+        <div class="container"><div class="row">
+            <div class="span9" id="content">
                 <div class="content-area">
                     {% block content-header %}
                         {% if messages %}
                             {% for message in messages %}
-                                <div class="{{ message.tags }}">{{ message }}</div>
+                                <div class="alert {{ message.tags }}">{{ message }}</div>
                             {% endfor %}
                         {% endif %}
                     {% endblock %}
                     {% block content %}{% endblock %}
                 </div>
             </div>
-            <div class="span-6 last" id="sidebar">
+            <div class="span3 last" id="sidebar">
                 <div class="content-area">
                     {% block sidebar %}
                         {% show_block 'sidebar' %}
                     {% endblock %}
                 </div>
             </div>
-        </div>
+        </div></div>
     </div>
 
     <div id="footer-wrap">
         <div class="container" id="footer">
-            <div class="span-24">
-                <div>Copyright © {% now "Y" %} {{ site_copyright }}</div>
-            </div>
+            <div>Copyright © {% now "Y" %} {{ site_copyright }}</div>
         </div>
     </div>
 
