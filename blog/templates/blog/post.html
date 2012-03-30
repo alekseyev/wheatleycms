@@ -1,8 +1,8 @@
 <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
 {% if not browse_posts %}
 <div class="author">
-By <strong>{{ post.author.get_full_name }}</strong> on <strong>{{ post.published_on|date }}</strong>
-<a href="{{ post.get_absolute_url }}#disqus_thread">Comments</a>
+By <strong>{{ post.author.username }}</strong> on <strong>{{ post.published_on|date }}</strong>
+
 </div>
 {% endif %}
 

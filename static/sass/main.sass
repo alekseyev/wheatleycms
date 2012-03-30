@@ -1,215 +1,30 @@
-/* Colors from http://colorschemedesigner.com/#3x51Tw0w0w0w0 */
+/* Height of the footer*/
+$footer: 43px
+$neg_footer: -43px
+/* Space between footer and content */
+$push_footer: 40px
 
-$footer: 50px
-
-html
+html, body
     height: 100%
 
 body
-    height: 100%
-    color: #333
     background: #F0F0F0
-    font-size: 13px
 
-#wrap
+#wrapper
     min-height: 100%
+    height: auto !important
+    height: 100%
+    margin: 0 auto $neg_footer
 
-#header, #footer
-    font-size: 11px
-    color: #F0F0F0
-
-#header-wrap
-    background: #66A3D2
-
-#header
-    background: #033E6B
-
-#content
-    padding-bottom: $footer
-    overflow: auto
-
-#footer-wrap
-    position: relative
-    clear: both
-    margin-top: -$footer
-    background: #61D7A4
+#push
+    height: $push_footer
 
 #footer
-    height: $footer
-    padding: 10px 0
-    background: #007241
-
-    *
-        text-align: center
-
-.content-area
-    padding: 10px
-
-.relevant-projects, .recent-blog-posts
-    list-style: none
-    margin-left: 5px
-
-a
-    color: #0B61A4
-    &:hover
-        text-decoration: underline
-        color: #66A3D2
-
-h1, h2, h3, h4
-    color: #1B1BB3
-    a
-        color: #1B1BB3
-        text-decoration: none
-        &:hover
-            color: #1B1BB3
-            text-decoration: underline
-
-#site-title
-    margin-left: 350px
-    margin-top: 50px
-    a, a:hover
-        text-decoration: none
-        color: #F0F0F0
-
-#search-form
-    display: inline
-    float: right
-    margin-right: 5px
-
-#search-field
-    font-size: 12px
-    padding: 4px 4px 4px 2px !important
-    border: 1px solid #BCCDF0 !important
-    border-radius: 4px
-    -moz-border-radius: 4px
-    -webkit-border-radius: 4px
-    -webkit-box-shadow: 0 1px 2px #999999
-    -moz-box-shadow: 0 1px 2px #999999
-
-#search-button
-    margin-left: 2px
-    padding: 3px 8px
-    font-size: 13px
-    font-weight: bold
-    color: #303e2a
-    text-shadow: 0 1px 2px #ffffff
-    background-color: #F0EDDE
-    border: 1px solid #F0EDDE
-    border-radius: 4px
-    -moz-border-radius: 4px
-    -webkit-border-radius: 4px
-    -webkit-box-shadow: 0 1px 2px #999999
-    -moz-box-shadow: 0 1px 2px #999999
-
-.menu
-    font-size: 14px
     clear: both
-    list-style: none
-    margin: 0
-    padding: 10px
 
-    a
-        color: #007241
-        text-decoration: none
-        &:hover
-            color: #FFF
-            text-decoration: underline
-
-    li
-        display: inline-block
-        width: 100px
-        height: 22px
-        background: #36D792
+    &>div
         text-align: center
-        padding-top: 3px
-
-        &.active-menu-item
-            background: #007241
-            a
-                color: #36D792
-                &:hover
-                    color: #FFF
-
-h1
-    margin-bottom: 15px
-
-.post
-    line-height: 1.6em
-
-.post-footer
-    padding: 5px
-    margin-bottom: 50px
-
-    -moz-border-radius: 5px
-    -webkit-border-radius: 5px
-    -ms-border-radius: 5px
-    border-radius: 5px
-
-.author
-    margin-bottom: 20px
-    font-size: 90%
-
-.finished-reading
-    margin-top: 20px
-
-.sidebar-block
-    margin-bottom: 30px
-
-#sidebar form
-    background-color: #F0EDDE
-    padding: 10px
-
-    -moz-border-radius: 10px
-    -webkit-border-radius: 10px
-    -ms-border-radius: 10px
-    border-radius: 10px
-
-.join-button
-    padding: 5px
-    margin-left: 5px
-    background-color: #36393D
-    color: white
-    font-weight: bold
-    text-decoration: none
-
-    -moz-border-radius: 5px
-    -webkit-border-radius: 5px
-    -ms-border-radius: 5px
-    border-radius: 5px
-
-#follow-us-sidebar
-    margin-top: 8px
-
-#blogroll, #recent-blog-posts
-    padding-right: 20px
-    padding-left: 0px
-
-    ul
-        margin-bottom: 10px
-        margin-left: 0px
-        list-style: none
-
-        li
-            padding: 7px 0
-
-.feed-widget
-    clear: both
-    margin-bottom: 10px
-
-div.profile-img-div.figure.align-left
-    margin-left: 0
-
-.profile-img
-    padding: 5px
-    border: 1px solid #F0EDDA
-
-.project-links
-    list-style: none
-    margin-left: 0px
-
-    li
-        display: inline
-        margin-right: 10px
+        height: $footer
 
 p.dsq-widget-meta
     background-color: #F0EDDE

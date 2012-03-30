@@ -1,5 +1,5 @@
 {% for item in menu %}
-  <li{% if item.active %} class="active-menu-item"{% endif %}>
+  <li{% if item.active %} class="active"{% endif %}>
     <a href="{{ item.url }}">{{ item.title }}</a>
   </li>
 {% endfor %}

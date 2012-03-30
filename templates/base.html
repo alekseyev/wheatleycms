@@ -5,12 +5,14 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>{% block title %}{% endblock %} | {{ site_name }}</title>
     {% block blogfeeds %}
         {% blog_feeds %}
     {% endblock %}
     {% block css %}
         <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.min.css" type="text/css">
         <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet" type="text/css" />
         {% google_analytics_code %}
     {% endblock %}
@@ -23,19 +25,20 @@
 </head>
 
 <body>
-    <div id="wrap">
-        <div id="header-wrap">
-            <div class="container" id="header">
-                <h1 id="site-title"><a href="/">{{ site_name }}</a></h1>
-                {% google_search_form %}
-                <ul class="menu">
-                    {% show_menu %}
-                </ul>
+    <div id="wrapper">
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a href="/" class="brand">{{ site_name }}</a>
+                        <ul class="nav">
+                            {% show_menu %}
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="container"><div class="row">
-            <div class="span9" id="content">
-                <div class="content-area">
+            <div class="row">
+                <div class="span9">
                     {% block content-header %}
                         {% if messages %}
                             {% for message in messages %}
@@ -45,23 +48,19 @@
                     {% endblock %}
                     {% block content %}{% endblock %}
                 </div>
-            </div>
-            <div class="span3 last" id="sidebar">
-                <div class="content-area">
-                    {% block sidebar %}
-                        {% show_block 'sidebar' %}
-                    {% endblock %}
+                <div class="hidden-phone">
+                    <div class="span3">
+                        {% block sidebar %}
+                            {% show_block 'sidebar' %}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
-        </div></div>
-    </div>
-
-    <div id="footer-wrap">
-        <div class="container" id="footer">
-            <div>Copyright © {% now "Y" %} {{ site_copyright }}</div>
         </div>
     </div>
-
+    <div class="container" id="footer">
+        <div>Copyright © {% now "Y" %} {{ site_copyright }}</div>
+    </div>
     {% block js %}
     {% endblock %}
   </body>

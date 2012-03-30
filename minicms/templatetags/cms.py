@@ -16,9 +16,14 @@ def show_block(name):
 def show_menu(context, name='menu'):
     request = context['request']
 
+    try:
+        menu_obj = Menu.objects.get(name=name)
+    except Menu.DoesNotExist:
+        return None
+
     menu = []
     try:
-        for line in Menu.objects.get(name=name).content.splitlines():
+        for line in menu_obj.content.splitlines():
             line = line.rstrip()
             try:
                 title, url = line.rsplit(' ', 1)
