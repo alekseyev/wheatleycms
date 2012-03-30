@@ -1,8 +1,6 @@
 /* Height of the footer*/
 $footer: 43px
 $neg_footer: -43px
-/* Space between footer and content */
-$push_footer: 40px
 
 html, body
     height: 100%
@@ -17,14 +15,13 @@ body
     margin: 0 auto $neg_footer
 
 #push
-    height: $push_footer
+    height: $footer
 
 #footer
     clear: both
 
     &>div
         text-align: center
-        height: $footer
 
 p.dsq-widget-meta
     background-color: #F0EDDE
@@ -37,3 +34,4 @@ p.dsq-widget-meta
 
 ul.dsq-widget-list
     margin: 0
+
