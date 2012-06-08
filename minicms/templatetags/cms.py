@@ -20,18 +20,17 @@ def show_menu(context, name='menu'):
         menu_obj = Menu.objects.get(name=name)
     except Menu.DoesNotExist:
         return ''
+    except Menu.MultipleObjectsReturned:
+        return 'Error: Multiple menus for "%s"' % name        
 
     menu = []
-    try:
-        for line in menu_obj.content.splitlines():
-            line = line.rstrip()
-            try:
-                title, url = line.rsplit(' ', 1)
-            except:
-                continue
-            menu.append({'title': title.strip(), 'url': url})
-    except Block.DoesNotExist:
-        pass
+    for line in menu_obj.content.splitlines():
+        line = line.rstrip()
+        try:
+            title, url = line.rsplit(' ', 1)
+        except:
+            continue
+        menu.append({'title': title.strip(), 'url': url})
 
     # Mark the best-matching URL as active
     active = None
