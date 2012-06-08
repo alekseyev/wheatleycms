@@ -19,7 +19,7 @@ def show_menu(context, name='menu'):
     try:
         menu_obj = Menu.objects.get(name=name)
     except Menu.DoesNotExist:
-        return None
+        return ''
 
     menu = []
     try:
