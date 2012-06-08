@@ -25,6 +25,14 @@ body {
   text-align: center;
 }
 
+.post-date {
+  float: right;
+}
+
+.post-comments-link {
+  float: right;
+}
+
 p.dsq-widget-meta {
   background-color: #f0edde;
   padding: 5px !important;
@@ -36,4 +44,10 @@ p.dsq-widget-meta {
 
 ul.dsq-widget-list {
   margin: 0;
+}
+
+@media (max-width: 767px) {
+  .navbar .brand {
+    display: none;
+  }
 }

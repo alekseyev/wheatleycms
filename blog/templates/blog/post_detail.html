@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-{% load disqus_tags %}
+{% load disqus_tags i18n %}
 {% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
 
 {% block extra-head %}
@@ -13,7 +13,7 @@
 {% block content %}
 <div class="post post-detail">
 {% if review %}
-<div class="info"><strong>Review mode: Don't tweet this!!!</strong></div>
+<div class="info"><strong>{% trans "Review mode: Don't share this link yet!" %}</strong></div>
 {% endif %}
 {% include 'blog/post.html' %}
 

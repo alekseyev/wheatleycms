@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-{% load disqus_tags %}
+{% load disqus_tags i18n %}
 {% block title %}{{ block.super }}{% if blog.keywords.strip %} - {{ blog.keywords.strip }}{% endif %}{% endblock %}
 
 {% block extra-head %}
@@ -13,12 +13,11 @@
 {% for post in object_list %}
   <div class="post post-in-list">
     {% include 'blog/post.html' %}
-    <div class="post-footer">
-      <a href="{{ post.get_absolute_url }}">Continue &raquo;</a>
-      |
-      By {{ post.author.username }} on {{ post.published_on|date }}
-      |
-      <a href="{{ post.get_absolute_url }}#disqus_thread">Comments</a>
+    <div class="post-comments-link">
+      <a href="{{ post.get_absolute_url }}#disqus_thread">{% trans "Comments" %}</a>
+    </div>
+    <div class="post-continue-link">
+      <a href="{{ post.get_absolute_url }}">{% trans "Continue" %} &raquo;</a>
     </div>
   </div>
 {% endfor %}

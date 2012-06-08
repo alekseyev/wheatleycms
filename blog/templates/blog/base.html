@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
-{% load blog cms %}
+{% load blog cms i18n %}
 {% block title %}{{ blog.title }}{% endblock %}
 
 {% block js %}
 {{ block.super }}
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 {% endblock %}
 
 {% block blogfeeds %}{% blog_feed blog %}{% endblock %}
@@ -13,14 +12,14 @@
 {% if blog.feedburner_id %}
 <div class="sidebar-block">
 <form action="http://feedburner.google.com/fb/a/mailverify" target="popupwindow" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri={{ blog.feedburner_id }}', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
-  <a href="{{ blog.feed_redirect_url }}" rel="alternate" title="Subscribe to blog (it's free)" type="application/rss+xml"><img alt="RSS" src="{{ STATIC_URL }}/simplesocial/icons32/rss.png" /></a><a href="{{ blog.feed_redirect_url }}" rel="alternate" title="Subscribe to blog (it's free)" type="application/rss+xml"><strong>Subscribe to blog (it's free)</strong></a>
+  <a href="{{ blog.feed_redirect_url }}" rel="alternate" title="Subscribe to blog (it's free)" type="application/rss+xml"><img alt="RSS" src="{{ STATIC_URL }}/simplesocial/icons32/rss.png" /></a><a href="{{ blog.feed_redirect_url }}" rel="alternate" title="{% trans "Subscribe to blog's RSS feed" %}" type="application/rss+xml"><strong>{% trans "Subscribe to blog's RSS feed" %}</strong></a>
 </form>
 </div>
 
 <div class="sidebar-block">
 <form action="http://feedburner.google.com/fb/a/mailverify" target="popupwindow" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri={{ blog.feedburner_id }}', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
 
-<p>Or subscribe via e-mail for free:</p>
+<p>{% trans "Or subscribe via e-mail" %}:</p>
 <p><input style="width:140px" name="email" type="text"/></p>
 <input value="{{ blog.feedburner_id }}" name="uri" type="hidden"/>
 <input value="en_US" name="loc" type="hidden"/>
@@ -33,9 +32,9 @@
 {% show_block 'blogroll' %}
 
 <div id="recent-blog-posts" class="sidebar-block">
-<h2>Recent posts</h2>
+<h2>{% trans "Recent posts" %}</h2>
 {% include 'blog/recent_posts.html' %}
 
-<a href="{{ blog.get_absolute_url }}">Browse all posts &raquo;</a>
+<a href="{{ blog.get_absolute_url }}">{% trans "Browse all posts" %} &raquo;</a>
 </div>
 {% endblock %}

@@ -1,13 +1,11 @@
 <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-{% if not browse_posts %}
-<div class="author">
-By <strong>{{ post.author.username }}</strong> on <strong>{{ post.published_on|date }}</strong>
+<div class="post-date"><i class="icon-calendar"></i> <strong>{{ post.published_on|date }}</strong></div>
+<div class="post-author"><i class="icon-user"></i> <strong>{{ post.author.username }}</strong></div>
 
+<div class="post-content">
+    {% if browse_posts %}
+    {{ post.rendered_content|truncatewords_html:150 }}
+    {% else %}
+    {{ post.rendered_content }}
+    {% endif %}
 </div>
-{% endif %}
-
-{% if browse_posts %}
-{{ post.rendered_content|truncatewords_html:150 }}
-{% else %}
-{{ post.rendered_content }}
-{% endif %}
