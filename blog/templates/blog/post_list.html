@@ -23,14 +23,7 @@
   </div>
 {% endfor %}
 
-<div class="pagenav">
-  {% if page_obj.has_next %}
-    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">&laquo; older</a>
-  {% endif %}
-  {% if page_obj.has_previous %}
-    <a href="{{ request.path }}{% if page_obj.previous_page_number != 1 %}?page={{ page_obj.previous_page_number }}{% endif %}">newer &raquo;</a>
-  {% endif %}
-</div>
+{% include "utils/pager.html" %}
 
 {% disqus_num_replies %}
 {% endblock %}

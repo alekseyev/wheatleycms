@@ -73,6 +73,7 @@ INSTALLED_APPS = (
     'autoload',
     'dbindexer',
     'tinymce',
+    'utils',
 )
 
 if has_djangoappengine:
