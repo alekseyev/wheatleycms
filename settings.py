@@ -72,8 +72,8 @@ INSTALLED_APPS = (
     'redirects',
     'autoload',
     'dbindexer',
-    'tinymce',
     'utils',
+    'wysihtml5',
 )
 
 if has_djangoappengine:
@@ -83,11 +83,6 @@ else:
     INSTALLED_APPS += ('django_mongodb_engine',)
 
 TEST_RUNNER = 'djangotoolbox.test.CapturingTestSuiteRunner'
-
-REST_BACKENDS = (
-    'minicms.markup_highlight',
-    'blog.markup_posts',
-)
 
 MIDDLEWARE_CLASSES = (
     # This loads the index definitions, so it has to come first
@@ -149,12 +144,6 @@ MESSAGE_TAGS = {
     message_constants.SUCCESS: 'alert-success',
     message_constants.WARNING: '',
     message_constants.ERROR: 'alert-error',
-}
-
-TINYMCE_DEFAULT_CONFIG = {
-    'theme': 'advanced', 
-    'theme_advanced_toolbar_location': 'top',
-    'relative_urls': False,
 }
 
 try:

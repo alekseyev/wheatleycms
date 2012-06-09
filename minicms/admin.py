@@ -2,10 +2,9 @@ from .models import Block, Page, Menu
 from django.contrib import admin
 from django.contrib.admin.widgets import AdminTextareaWidget
 from django.db import models
-from tinymce.widgets import AdminTinyMCE
 
 # The default TextField doesn't have enough rows
-class UsableTextarea(AdminTinyMCE):
+class UsableTextarea(AdminTextareaWidget):
     def __init__(self, attrs=None):
         default_attrs = {'rows': '32'}
         if attrs:

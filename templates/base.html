@@ -63,6 +63,8 @@
         <div class="container"><p>Copyright © {% now "Y" %} {{ site_copyright }}</p></div>
     </div>
     {% block js %}
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
     {% endblock %}
   </body>
 </html>

@@ -1,10 +1,9 @@
 from django.contrib.sitemaps import Sitemap
 from django.db import models
-from tinymce import models as tinymce_models
 
 class BaseContent(models.Model):
     title = models.CharField(max_length=200)
-    content = tinymce_models.HTMLField(blank=True)
+    content = models.TextField(blank=True)
     last_update = models.DateTimeField(auto_now=True)
 
     @property
@@ -27,7 +26,7 @@ class Page(BaseContent):
 
 class Block(models.Model):
     name = models.CharField(max_length=200)
-    content = tinymce_models.HTMLField(blank=True)
+    content = models.TextField(blank=True)
 
     def __unicode__(self):
         return self.name
