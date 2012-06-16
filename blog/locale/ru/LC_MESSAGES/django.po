@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GosuCMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-08 19:06+0300\n"
+"POT-Creation-Date: 2012-06-16 14:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Aleksey Alekseyev <gotletter@gmail.com>\n"
 "Language-Team:  <>\n"
@@ -11,22 +11,31 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: templates/blog/base.html:15
+#: views.py:114
+#, python-format
+msgid "Add post to %(title)s"
+msgstr "Добавить заметку в %(title)s"
+
+#: templates/blog/admin.html:3
+msgid "Add post"
+msgstr "Добавить заметку"
+
+#: templates/blog/base.html:20
 msgid "Subscribe to blog's RSS feed"
 msgstr "Подписаться на RSS ленту"
 
-#: templates/blog/base.html:22
+#: templates/blog/base.html:27
 msgid "Or subscribe via e-mail"
 msgstr "Или подписаться по e-mail"
 
-#: templates/blog/base.html:35
+#: templates/blog/base.html:40
 msgid "Recent posts"
 msgstr "Последние заметки"
 
-#: templates/blog/base.html:38
+#: templates/blog/base.html:43
 msgid "Browse all posts"
 msgstr "Смотреть все заметки"
 

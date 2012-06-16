@@ -7,6 +7,7 @@
 *.pyo
 *.swp
 *.tmp
+index.yaml
 sitestatic
 desktop.ini
 settings_overrides.py
@@ -16,8 +17,7 @@ django
 django_mongodb_engine
 djangotoolbox
 dbindexer
-pyjs
-pymeta
-pyvascript
 settings_local.py
 autoload
+bootstrap
+permission_backend_nonrel

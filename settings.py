@@ -61,6 +61,8 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
+    'permission_backend_nonrel',
+    'bootstrap',
     'urlrouter',
     'minicms',
     'blog',

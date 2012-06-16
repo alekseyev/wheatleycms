@@ -1,11 +1,14 @@
-from .models import Blog, Post
 from datetime import datetime
 from django.conf import settings
 from django.contrib.syndication.views import Feed
 from django.http import HttpResponseRedirect, Http404
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.utils.feedgenerator import Atom1Feed
 from django.views.generic import ListView
+from django.utils.translation import ugettext as _
+
+from .models import Blog, Post
+from .forms import PostForm
 
 def review(request, review_key):
     post = get_object_or_404(Post, review_key=review_key)
@@ -93,3 +96,21 @@ def latest_entries_feed(request, *args, **kwargs):
     feed = LatestEntriesFeed()
     feed._request = request
     return feed(request, *args, **kwargs)
+
+def add_post(request, blog_url):
+    blog = get_object_or_404(Blog, url=blog_url)
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        form.instance.blog = blog
+        form.instance.author = request.user
+        form.save()
+        return redirect(blog.url)
+    else:
+        return render(
+            request,
+            'form.html',
+            {
+                'form': form,
+                'title': _('Add post to %(title)s') % {'title': blog.title},
+            })
+
