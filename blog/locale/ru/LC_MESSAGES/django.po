@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GosuCMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-16 14:59+0300\n"
+"POT-Creation-Date: 2012-06-16 21:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Aleksey Alekseyev <gotletter@gmail.com>\n"
 "Language-Team:  <>\n"
@@ -67,45 +67,49 @@ msgstr "Опубликовать"
 msgid "Author"
 msgstr "Автор"
 
-#: models.py:72 models.py:79
+#: models.py:72 models.py:81
 msgid "Optional (filled automatically when saving)"
 msgstr "Необязательное (заполняется автоматически при сохранении)"
 
 #: models.py:74
-msgid ""
-"Optional (filled automatically when publishing). Better use a hand-optimized "
-"URL that is unique and SEO-friendly.<br/>"
-"Tip: Relative URLs (not starting with \"/\") will be prefixed with the "
-"blog's URL."
-msgstr ""
-"Необязательное (заполняется автоматически при сохранении). Рекомендуется использовать "
-"подобранный вручную адрес, который будет уникальным и подходящим для SEO. <br/>"
-"Совет: К относительным адресам (которые начинаются не с \"/\") будет приписан адрес блога вначале"
-
-#: models.py:76
-msgid "Published on"
-msgstr "Дата публикации"
-
-#: models.py:77
-msgid "Optional (filled automatically when publishing)"
+msgid "Optional (filled automatically when publishing). "
 msgstr "Необязательное (заполняется автоматически при публикации)"
 
 #: models.py:78
+msgid "Published on"
+msgstr "Дата публикации"
+
+#: models.py:79
+msgid "Optional (filled automatically when publishing)"
+msgstr "Необязательное (заполняется автоматически при публикации)"
+
+#: models.py:80
 msgid "Review key"
 msgstr "Ключ предпросмотра"
 
-#: views.py:114
+#: views.py:116
 #, python-format
 msgid "Add post to %(title)s"
 msgstr "Добавить заметку в %(title)s"
 
-#: templates/admin/blog/post/change_form.html:8
-msgid "History"
-msgstr ""
+#: views.py:128
+#, python-format
+msgid "Editing post %(title)s"
+msgstr "Редактирование заметки %(title)s"
 
-#: templates/admin/blog/post/change_form.html:9
-msgid "View on site"
-msgstr ""
+#: views.py:129
+msgid "Save"
+msgstr "Сохранить"
+
+#: views.py:142
+#, python-format
+msgid "Deleting post %(title)s"
+msgstr "Удаление заметки %(title)s"
+
+#: views.py:143
+#, python-format
+msgid "Are you sure you want to delete post %(title)s?"
+msgstr "Вы действительно хотите удалить %(title)s?"
 
 #: templates/blog/admin.html:3
 msgid "Add post"
@@ -127,6 +131,10 @@ msgstr "Последние заметки"
 msgid "Browse all posts"
 msgstr "Смотреть все заметки"
 
+#: templates/blog/post.html:8
+msgid "Edit"
+msgstr "Редактировать"
+
 #: templates/blog/post_detail.html:16
 msgid "Review mode: Don't share this link yet!"
 msgstr "Предварительный просмотр. Не распространяйте эту ссылку!"
@@ -138,3 +146,13 @@ msgstr "Комментарии"
 #: templates/blog/post_list.html:20
 msgid "Continue"
 msgstr "Читать дальше"
+
+msgid ""
+"Optional (filled automatically when publishing). Better use a hand-"
+"optimized URL that is unique and SEO-friendly.<br/>Tip: Relative URLs "
+"(not starting with \"/\") will be prefixed with the blog's URL."
+msgstr ""
+"Необязательное (заполняется автоматически при сохранении). Рекомендуется "
+"использовать подобранный вручную адрес, который будет уникальным и "
+"подходящим для SEO. <br/>Совет: К относительным адресам (которые "
+"начинаются не с \"/\") будет приписан адрес блога вначале"

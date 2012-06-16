@@ -61,13 +61,13 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
-    'permission_backend_nonrel',
     'bootstrap',
     'urlrouter',
     'minicms',
     'blog',
     'disqus',
     'djangotoolbox',
+    'permission_backend_nonrel',
     'google_analytics',
     'google_cse',
     'robots',
@@ -85,6 +85,10 @@ else:
     INSTALLED_APPS += ('django_mongodb_engine',)
 
 TEST_RUNNER = 'djangotoolbox.test.CapturingTestSuiteRunner'
+
+AUTHENTICATION_BACKENDS = (
+    'permission_backend_nonrel.backends.NonrelPermissionBackend',
+)
 
 MIDDLEWARE_CLASSES = (
     # This loads the index definitions, so it has to come first

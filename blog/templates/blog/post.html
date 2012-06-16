@@ -1,6 +1,12 @@
+{% load i18n %}
+
 <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
 <div class="post-date"><i class="icon-calendar"></i> <strong>{{ post.published_on|date }}</strong></div>
 <div class="post-author"><i class="icon-user"></i> <strong>{{ post.author.username }}</strong></div>
+
+{% if perms.blog.edit_post %}
+    <a href="{% url blog.views.update_post post.pk %}"><i class="icon-edit"></i>{% trans "Edit" %}</a>
+{% endif %}
 
 <div class="post-content">
     {% if browse_posts %}
@@ -9,3 +15,7 @@
     {{ post.rendered_content }}
     {% endif %}
 </div>
+
+{% if not browse_posts and perms.blog.delete_post %}
+    <a href="{% url blog.views.delete_post post.pk %}"><i class="icon-trash"></i>{% trans "Delete" %}</a>
+{% endif %}

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GosuCMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-16 14:35+0300\n"
+"POT-Creation-Date: 2012-06-16 21:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Aleksey Alekseyev <gotletter@gmail.com>\n"
 "Language-Team:  <>\n"
@@ -14,9 +14,9 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: templates/form.html:22
-msgid "Submit"
-msgstr "Отправить"
+#: templates/confirm.html:14
+msgid "Confirm"
+msgstr "Подтвердить"
 
 #: templates/utils/pager.html:7
 msgid "Previous page"
@@ -41,3 +41,6 @@ msgstr "Следующая страница"
 #: templates/utils/pager.html:13
 msgid "Next"
 msgstr "Следующая"
+
+#~ msgid "Submit"
+#~ msgstr "Отправить"

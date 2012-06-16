@@ -4,8 +4,9 @@ from django.contrib.syndication.views import Feed
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render, redirect
 from django.utils.feedgenerator import Atom1Feed
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView, DeleteView
 from django.utils.translation import ugettext as _
+from django.contrib.auth.decorators import permission_required
 
 from .models import Blog, Post
 from .forms import PostForm
@@ -97,6 +98,7 @@ def latest_entries_feed(request, *args, **kwargs):
     feed._request = request
     return feed(request, *args, **kwargs)
 
+@permission_required('blog.add_post')
 def add_post(request, blog_url):
     blog = get_object_or_404(Blog, url=blog_url)
     form = PostForm(request.POST or None)
@@ -114,3 +116,35 @@ def add_post(request, blog_url):
                 'title': _('Add post to %(title)s') % {'title': blog.title},
             })
 
+@permission_required('blog.change_post')
+def update_post(request, pk):
+    class UpdatePost(UpdateView):
+        model = Post
+        form_class = PostForm
+        template_name = 'form.html'
+
+        def get_context_data(self, **kwargs):
+            context = super(UpdatePost, self).get_context_data(**kwargs)
+            context['title'] = _('Editing post %(title)s') % {'title': self.object.title}
+            context['submit_caption'] = _('Save')
+            return context
+
+    return UpdatePost.as_view()(request, pk=pk)
+
+@permission_required('blog.delete_post')
+def delete_post(request, pk):
+    class DeletePost(DeleteView):
+        model = Post
+        template_name = 'confirm.html'
+
+        def get_context_data(self, **kwargs):
+            context = super(DeletePost, self).get_context_data(**kwargs)
+            context['title'] = _('Deleting post %(title)s') % {'title': self.object.title}
+            context['message'] = _('Are you sure you want to delete post %(title)s?') % \
+                {'title': self.object.title}
+            return context
+
+        def get_success_url(self, obj):
+            return obj.blog.get_absolute_url()
+
+    return DeletePost.as_view()(request, pk=pk)
