@@ -8,24 +8,25 @@ from minicms.models import BaseContent
 from random import choice
 from string import ascii_letters, digits
 import re
+from django.utils.translation import ugettext as _
 
 FEEDBURNER_ID = re.compile(r'^http://feeds\d*.feedburner.com/([^/]+)/?$')
 
 class Blog(models.Model):
-    title = models.CharField(max_length=200,
-        help_text='This will also be your feed title')
-    keywords = models.CharField(max_length=200, blank=True,
-        help_text='Optional: Add a short extra description for the title tag '
-                  '(for SEO-purposes).')
-    url = models.CharField('URL', max_length=200,
-        help_text='Example: /blog')
-    description = models.CharField(max_length=500, blank=True,
-        help_text='This will also be your feed description.')
-    feed_redirect_url = models.URLField('Feed redirect URL',
+    title = models.CharField(_('Title'), max_length=200,
+        help_text=_('This will also be your feed title'))
+    keywords = models.CharField(_('Keywords'), max_length=200, blank=True,
+        help_text=_('Optional: Add a short extra description for the title tag '
+                  '(for SEO-purposes).'))
+    url = models.CharField(_('URL'), max_length=200,
+        help_text=_('Example: /blog'))
+    description = models.CharField(_('Description'), max_length=500, blank=True,
+        help_text=_('This will also be your feed description.'))
+    feed_redirect_url = models.URLField(_('Feed redirect URL'),
         verify_exists=False, blank=True,
-        help_text='Optional (use this to publish feeds via FeedBurner)<br />'
+        help_text=_('Optional (use this to publish feeds via FeedBurner)<br />'
                   'Example: http://feeds.feedburner.com/YourFeedBurnerID<br />'
-                  'If you use FeedBurner this will also enable FeedFlares.')
+                  'If you use FeedBurner this will also enable FeedFlares.'))
 
     def __unicode__(self):
         return self.title
@@ -59,23 +60,25 @@ def default_blog():
     return None
 
 def generate_review_key():
-    charset = ascii_letters + digits
+    charset = ascii_letters + digits2
     return ''.join(choice(charset) for i in range(32))
 
 class Post(BaseContent):
-    blog = models.ForeignKey(Blog, related_name='posts', default=default_blog)
-    published = models.BooleanField(default=False)
-    author = models.ForeignKey(User, related_name='posts', null=True, blank=True,
-        help_text='Optional (filled automatically when saving)')
-    url = models.CharField('URL', blank=True, max_length=200,
-        help_text='Optional (filled automatically when publishing). Better '
-                  'use a hand-optimized URL that is unique and SEO-friendly.<br/>'
-                  'Tip: Relative URLs (not starting with "/") will be prefixed '
-                  "with the blog's URL.")
-    published_on = models.DateTimeField(null=True, blank=True,
-        help_text='Optional (filled automatically when publishing)')
-    review_key = models.CharField(max_length=32, blank=True,
-        help_text='Optional (filled automatically when saving)')
+    blog = models.ForeignKey(Blog, related_name='posts', verbose_name=_('Blog'), 
+        default=default_blog)
+    published = models.BooleanField(_('Published'), default=False)
+    author = models.ForeignKey(User, related_name='posts', null=True, blank=True, 
+        verbose_name=_('Author'),
+        help_text=_('Optional (filled automatically when saving)'))
+    url = models.CharField(_('URL'), blank=True, max_length=200,
+        help_text=_('Optional (filled automatically when publishing). '
+            'Better use a hand-optimized URL that is unique and SEO-friendly.<br/>'
+            'Tip: Relative URLs (not starting with "/") '
+            'will be prefixed with the blog\'s URL.'))
+    published_on = models.DateTimeField(_('Published on'), null=True, blank=True,
+        help_text=_('Optional (filled automatically when publishing)'))
+    review_key = models.CharField(_('Review key'), max_length=32, blank=True,
+        help_text=_('Optional (filled automatically when saving)'))
 
     def __unicode__(self):
         return self.title

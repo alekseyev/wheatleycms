@@ -1,10 +1,11 @@
 from django.contrib.sitemaps import Sitemap
 from django.db import models
+from django.utils.translation import ugettext as _
 
 class BaseContent(models.Model):
-    title = models.CharField(max_length=200)
-    content = models.TextField(blank=True)
-    last_update = models.DateTimeField(auto_now=True)
+    title = models.CharField(_('Title'), max_length=200)
+    content = models.TextField(_('Content'), blank=True)
+    last_update = models.DateTimeField(_('Last update'), auto_now=True)
 
     @property
     def rendered_content(self):
@@ -15,8 +16,8 @@ class BaseContent(models.Model):
         abstract = True
 
 class Page(BaseContent):
-    url = models.CharField('URL', max_length=200)
-    published = models.BooleanField(default=True)
+    url = models.CharField(_('URL'), max_length=200)
+    published = models.BooleanField(_('Published'), default=True)
 
     def __unicode__(self):
         return u"%s -- %s" % (self.url, self.title)
@@ -25,15 +26,15 @@ class Page(BaseContent):
         return self.url
 
 class Block(models.Model):
-    name = models.CharField(max_length=200)
-    content = models.TextField(blank=True)
+    name = models.CharField(_('Name'), max_length=200)
+    content = models.TextField(_('Content'), blank=True)
 
     def __unicode__(self):
         return self.name
 
 class Menu(models.Model):
-    name = models.CharField(max_length=200)
-    content = models.TextField(blank=True)
+    name = models.CharField(_('Name'), max_length=200)
+    content = models.TextField(_('Content'), blank=True)
 
     def __unicode__(self):
         return self.name

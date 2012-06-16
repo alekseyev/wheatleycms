@@ -1,0 +1,31 @@
+# This file is distributed under the same license as the GosuCMS package.
+msgid ""
+msgstr ""
+"Project-Id-Version: GosuCMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-16 14:59+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Aleksey Alekseyev <gotletter@gmail.com>\n"
+"Language-Team:  <>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: models.py:6
+msgid "Title"
+msgstr "Заголовок"
+
+#: models.py:7 models.py:30 models.py:37
+msgid "Content"
+msgstr "Содержимое"
+
+#: models.py:8
+msgid "Last update"
+msgstr "Дата последнего обновления"
+
+#: models.py:29 models.py:36
+msgid "Name"
+msgstr "Название"
