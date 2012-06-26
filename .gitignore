@@ -21,3 +21,4 @@ settings_local.py
 autoload
 bootstrap
 permission_backend_nonrel
+filetransfers

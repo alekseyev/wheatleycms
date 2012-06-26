@@ -7,6 +7,7 @@ from django.contrib.messages import constants as message_constants
 try:
     from djangoappengine.settings_base import *
     has_djangoappengine = True
+    IMAGES_BACKEND = 'images.backends.googleapi.GoogleBackend'
 except ImportError:
     has_djangoappengine = False
     DEBUG = True
@@ -76,6 +77,8 @@ INSTALLED_APPS = (
     'dbindexer',
     'utils',
     'wysihtml5',
+    'filetransfers',
+    'images',
 )
 
 if has_djangoappengine:

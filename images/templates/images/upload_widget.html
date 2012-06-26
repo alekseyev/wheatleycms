@@ -1,0 +1,18 @@
+{% load filetransfers i18n %}
+
+<div class="btn-group">
+    <button id="upload-button" class="btn" data-toggle="modal" href="#upload-form"><i class="icon-upload"></i> {% trans "Upload an image" %}</button>
+    <button id="gallery-button" class="btn"><i class="icon-folder-open"></i> {% trans "Gallery" %}</button>
+</div>
+
+<div id="upload-form" class="modal hide well">
+    {% render_upload_data upload_data %}
+    {{ upload_form.image_inner }}
+    <input type="submit" value="{% trans "Upload" %}" class="btn" id="upload-submit" onclick="return start_upload('{{ upload_url }}')">
+    <div id="upload-progress" class="spinning hide">{% trans "Uploading..." %}</div>
+</div>
+
+<div id="image-modal" class="modal hide well">
+</div>
+
+

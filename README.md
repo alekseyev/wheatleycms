@@ -4,6 +4,7 @@ GosuCMS is a CMS solution for [django-nonrel](http://docs.django-nonrel.org). It
 
 - [django-permission-backend-nonrel](https://github.com/django-nonrel/django-permission-backend-nonrel)
 - [django-bootstrap](https://github.com/earle/django-bootstrap)
+- [django-filetransfers](https://bitbucket.org/wkornewald/django-filetransfers)
 
 Note: GosuCMS uses django.contrib.staticfiles for static files management.
 

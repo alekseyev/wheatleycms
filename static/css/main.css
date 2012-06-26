@@ -51,3 +51,7 @@ ul.dsq-widget-list {
     display: none;
   }
 }
+.spinning {
+  background: url("../img/spinning.gif") left no-repeat;
+  padding-left: 20px;
+}
