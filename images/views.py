@@ -18,3 +18,12 @@ def ajax_upload_post(request):
     else:
         result = { 'success': 0 }
     return HttpResponse(json.dumps(result), content_type='application/json')
+
+def ajax_list_images(request):
+    objects = Image.objects.all()[:10]
+    result = [{
+        'thumbnail_url': obj.thumbnail_url(), 
+        'url': obj.url(),
+        'pk': obj.pk, 
+    } for obj in objects]
+    return HttpResponse(json.dumps(result), content_type='application/json')
