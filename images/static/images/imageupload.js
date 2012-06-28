@@ -1,12 +1,25 @@
 var image_data = {}
 var gallery_data = []
+var upload_url = ''
+var upload_data = {}
 
 $(document).ready(function(){
+    update_upload_data()
 })
 
-function start_upload(url) {
+function update_upload_data() {
+    $.getJSON(
+        '/images/ajax/get_upload_data/',
+        function(data, textStatus, jqXHR){
+            upload_url = data.upload_url
+            upload_data = data.upload_data
+            $('#upload-submit').removeAttr('disabled')
+        })
+}
+
+function start_upload() {
     $('#form').ajaxSubmit({
-        url: url,
+        url: upload_url,
         success: finish_upload
     })
     $('#upload-progress').show()
@@ -17,7 +30,7 @@ function finish_upload(data, textStatus, jqXHR) {
     $('#upload-form').modal('hide')
     $('#upload-progress').hide()
     $('#id_image_inner').val('')
-    $('#upload-submit').removeAttr('disabled')
+    update_upload_data()
     image_data = data
     show_image()
 }

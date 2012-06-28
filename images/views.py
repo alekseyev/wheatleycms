@@ -1,6 +1,8 @@
 import json
 
 from django.http import HttpResponse
+from filetransfers.api import prepare_upload
+from django.core.urlresolvers import reverse
 
 from .forms import ImageUploadForm
 from .models import Image
@@ -27,3 +29,14 @@ def ajax_list_images(request):
         'pk': obj.pk, 
     } for obj in objects]
     return HttpResponse(json.dumps(result), content_type='application/json')
+
+def ajax_get_upload_data(request):
+    upload_url, upload_data = prepare_upload(
+        request, 
+        reverse('images.views.ajax_upload_post'))
+    return HttpResponse(
+        json.dumps({
+            'upload_url': upload_url,
+            'upload_data': upload_data,
+        }), 
+        content_type='application/json')
