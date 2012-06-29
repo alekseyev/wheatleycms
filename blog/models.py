@@ -60,7 +60,7 @@ def default_blog():
     return None
 
 def generate_review_key():
-    charset = ascii_letters + digits2
+    charset = ascii_letters + digits
     return ''.join(choice(charset) for i in range(32))
 
 class Post(BaseContent):

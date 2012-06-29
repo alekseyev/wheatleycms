@@ -1,4 +1,4 @@
-GosuCMS is a CMS solution for [django-nonrel](http://docs.django-nonrel.org). Its codebase is based on [All Buttons Pressed](http://docs.django-nonrel.org/en/latest/content/All%20Buttons%20Pressed%20-%20CMS%20&%20blog%20for%20Django-nonrel.html) project
+WheatleyCMS is a CMS solution for [django-nonrel](http://docs.django-nonrel.org). Its codebase is based on [All Buttons Pressed](http://docs.django-nonrel.org/en/latest/content/All%20Buttons%20Pressed%20-%20CMS%20&%20blog%20for%20Django-nonrel.html) project
 
 # Dependencies
 
@@ -6,13 +6,13 @@ GosuCMS is a CMS solution for [django-nonrel](http://docs.django-nonrel.org). It
 - [django-bootstrap](https://github.com/earle/django-bootstrap)
 - [django-filetransfers](https://bitbucket.org/wkornewald/django-filetransfers)
 
-Note: GosuCMS uses django.contrib.staticfiles for static files management.
+Note: WheatleyCMS uses django.contrib.staticfiles for static files management.
 
 # Getting started
 
 First, create an admin user with manage.py createsuperuser. Then, run manage.py runserver and go to [http://localhost:8000/admin/](http://localhost:8000/admin/) and create a few pages and posts. Otherwise you'll only see a 404 error page. A good idea would be to create a blog or page with the url "/".
 
-GosuCMS has a concept called "Block". Blocks can be created and edited via the admin UI. The sidebar's content in default template is defined via a block called "sidebar". 
+WheatleyCMS has a concept called "Block". Blocks can be created and edited via the admin UI. The sidebar's content in default template is defined via a block called "sidebar". 
 
 You can also define menus. Use this format:
 
