@@ -1,6 +1,7 @@
 .settings
 .gaedata
 .sass-cache
+.ropeproject
 *~
 *.orig
 *.pyc
