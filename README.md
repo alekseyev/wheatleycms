@@ -27,5 +27,5 @@ You can use `show_block` and `show_menu` tags in your templates to output blocks
 
 - [jQuery](http://jquery.com/)
 - [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
-- [WYSIHTML5](https://github.com/xing/wysihtml5)
+- [WYSIHTML5](https://github.com/xing/wysihtml5): forked version alekseyev/wysihtml5 
 - [Bootstrap-wysihtml5](https://github.com/jhollingworth/bootstrap-wysihtml5)
