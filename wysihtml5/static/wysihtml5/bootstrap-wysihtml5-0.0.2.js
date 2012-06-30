@@ -16,7 +16,7 @@
 							"<div class='btn-group'>" 
 							    + "<a class='btn' data-wysihtml5-command='bold' title='CTRL+B'>Bold</a>" 
 							    + "<a class='btn' data-wysihtml5-command='italic' title='CTRL+I'>Italic</a>" 
-							    + "<a class='btn' data-wysihtml5-command='underline' title='CTRL+U'>Underline</a>" 
+							    //,+ "<a class='btn' data-wysihtml5-command='underline' title='CTRL+U'>Underline</a>" 
 							+ "</div>" 
 						+ "</li>",
 		"lists": 	"<li>" 
@@ -32,7 +32,7 @@
 						
 						+ "<div class='bootstrap-wysihtml5-insert-link-modal modal hide fade'>"
 							+ "<div class='modal-header'>"
-							+ "<a class='close' data-dismiss='modal'>&times;</a>"
+							+ "<a class='close' data-dismiss='modal'>×</a>"
 							  + "<h3>Insert Link</h3>"
 							+ "</div>"
 							+ "<div class='modal-body'>"
@@ -52,7 +52,7 @@
 						
 						+ "<div class='bootstrap-wysihtml5-insert-image-modal modal hide fade'>"
 							+ "<div class='modal-header'>"
-							+ "<a class='close' data-dismiss='modal'>&times;</a>"
+							+ "<a class='close' data-dismiss='modal'>×</a>"
 							  + "<h3>Insert Image</h3>"
 							+ "</div>"
 							+ "<div class='modal-body'>"
@@ -113,8 +113,7 @@
 					}
 				}
 			}
-		},
-		stylesheets: []
+		}
 	};
 
 	var Wysihtml5 = function(el, options) {
@@ -136,32 +135,26 @@
 	Wysihtml5.prototype = {
 		constructor: Wysihtml5,
 
-    createEditor: function(options) {
-      var parserRules = defaultOptions.parserRules; 
-      var stylesheets = defaultOptions.stylesheets;
+		createEditor: function(options) {
+			var parserRules = defaultOptions.parserRules; 
 
-      if(options && options.parserRules) {
-        parserRules = options.parserRules;
-      }
+			if(options && options.parserRules) {
+				parserRules = options.parserRules;
+			}
+				
+			var editor = new wysi.Editor(this.el.attr('id'), {
+	    		toolbar: this.toolbar.attr('id'),
+				parserRules: parserRules
+	  		});
 
-      if (options && options.stylesheets) {
-        stylesheets = options.stylesheets;
-      }
+	  		if(options && options.events) {
+				for(var eventName in options.events) {
+					editor.on(eventName, options.events[eventName]);
+				}
+			}	
 
-      var editor = new wysi.Editor(this.el.attr('id'), {
-        toolbar: this.toolbar.attr('id'),
-        parserRules: parserRules,
-        stylesheets: stylesheets
-      });
-
-      if(options && options.events) {
-        for(var eventName in options.events) {
-          editor.on(eventName, options.events[eventName]);
-        }
-      }  
-
-      return editor;
-    },
+	  		return editor;
+		},
 		
 		createToolbar: function(el, options) {
 			var self = this;
@@ -250,7 +243,6 @@
 
 			toolbar.find('a[data-wysihtml5-command=insertImage]').click(function() {
 				insertImageModal.modal('show');
-				return false;
 			});
 		},
 
@@ -291,7 +283,6 @@
 
 			toolbar.find('a[data-wysihtml5-command=createLink]').click(function() {
 				insertLinkModal.modal('show');
-				return false;
 			});
 		}
 	};

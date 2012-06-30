@@ -22,3 +22,10 @@ You can also define menus. Use this format:
 You should probably create a menu with the name "menu" (it is used in default template). 
 
 You can use `show_block` and `show_menu` tags in your templates to output blocks and menus. Both of these tags require `{% load cms %}` statement to work.
+
+# Bundled libraries
+
+- [jQuery](http://jquery.com/)
+- [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
+- [WYSIHTML5](https://github.com/xing/wysihtml5)
+- [Bootstrap-wysihtml5](https://github.com/jhollingworth/bootstrap-wysihtml5)

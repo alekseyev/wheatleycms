@@ -10,10 +10,10 @@ class WYSIWYG(forms.Textarea):
 
     class Media:
         js = (
-            'wysihtml5/wysihtml5-0.3.0_rc3.min.js',
-            'wysihtml5/bootstrap-wysihtml5.js',
+            'wysihtml5/wysihtml5-0.3.0.js',
+            'wysihtml5/bootstrap-wysihtml5-0.0.2.js',
             'wysihtml5/init-wysihtml5.js'
         )
         css = {
-            'all': ('wysihtml5/bootstrap-wysihtml5.css',)
+            'all': ('wysihtml5/bootstrap-wysihtml5-0.0.2.css',)
         }
