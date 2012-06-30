@@ -46,7 +46,9 @@
 
 				    	+ "<a class='btn' data-wysihtml5-command='createLink' title='Link'><i class='icon-share'></i></a>" 
 
-					+ "</li>",
+					+ "</li>"
+					 + "  <div data-wysihtml5-dialog='createLink' style='display: none;'>"
+	  				 + "      </div>",
 
 			"image": "<li>" 
 						
