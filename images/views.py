@@ -15,6 +15,7 @@ def ajax_upload_post(request):
             'success': 1, 
             'thumbnail_url': form.instance.thumbnail_url(), 
             'url': form.instance.url(),
+            'caption': form.instance.caption,
             'pk': form.instance.pk, 
         }
     else:
@@ -22,10 +23,11 @@ def ajax_upload_post(request):
     return HttpResponse(json.dumps(result), content_type='application/json')
 
 def ajax_list_images(request):
-    objects = Image.objects.all()[:10]
+    objects = Image.objects.order_by('-created')[:10]
     result = [{
         'thumbnail_url': obj.thumbnail_url(), 
         'url': obj.url(),
+        'caption': obj.caption,
         'pk': obj.pk, 
     } for obj in objects]
     return HttpResponse(json.dumps(result), content_type='application/json')

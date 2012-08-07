@@ -37,21 +37,25 @@ function finish_upload(data, textStatus, jqXHR) {
 
 function show_image() {
     $('#image-modal-thumbnail').attr('src', image_data.thumbnail_url)
+    $('#image-modal-caption').html(image_data.caption)
     $('#image-modal').modal('show')
 }
 
 function insert_image() {
-    wysihtml_editor.composer.commands.exec(
-        'insertHTML', 
-        '<img src="' + image_data.url + '"></a>'
-        )
+    var html = '<p><img src="' + image_data.url + '"><br>'
+    if (image_data.caption)
+        html += '<i>' + image_data.caption + '</i>'
+    html += '</p>'
+    wysihtml_editor.composer.commands.exec('insertHTML', html)
     $('#image-modal').modal('hide')
 }
 
 function insert_thumbnail() {
-    wysihtml_editor.composer.commands.exec(
-        'insertHTML', 
-        '<a href="' + image_data.url + '"><img src="' + image_data.thumbnail_url + '"></a>')
+    var html = '<p><a href="' + image_data.url + '"><img src="' + image_data.thumbnail_url + '"></a><br>'
+    if (image_data.caption)
+        html += '<i>' + image_data.caption + '</i>'
+    html += '</p>'
+    wysihtml_editor.composer.commands.exec('insertHTML', html)
     $('#image-modal').modal('hide')
 }
 
@@ -63,9 +67,14 @@ function show_gallery() {
             var html = ''
             for (var img in data) {
                 html += '<li>'
-                html += '<a href="#" class="thumbnail" onclick="gallery_click(' + img +  ')">'
+                html += '<div class="thumbnail">'
+                html += '<a href="#" onclick="gallery_click(' + img +  ')">'
                 html += '<img src="' + gallery_data[img].thumbnail_url + '">'
-                html += '</a></li>'
+                html += '</a>'
+                if (gallery_data[img].caption)
+                    html += '<p>' + gallery_data[img].caption + '</p>'
+                html += '</div>'
+                html += '</li>'
             }
             $('#gallery-thumbnails').html(html)
             $('#gallery').modal('show')
