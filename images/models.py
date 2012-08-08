@@ -15,7 +15,7 @@ def _load_backend():
     return _backend_cache
 
 class Image(models.Model):
-    image_inner = models.FileField(_('Image'), upload_to='img/')
+    image_inner = models.ImageField(_('Image'), upload_to='img/')
     created = models.DateTimeField(auto_now=True)
     caption = models.CharField(_('Caption'), max_length=256, blank=True)
 
