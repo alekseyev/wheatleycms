@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponse
 from filetransfers.api import prepare_upload
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
 
 from .forms import ImageUploadForm
 from .models import Image
@@ -42,3 +43,10 @@ def ajax_get_upload_data(request):
             'upload_data': upload_data,
         }), 
         content_type='application/json')
+
+def ajax_thumbnail_code(request):
+    obj = get_object_or_404(Image, pk=request.POST['pk'])
+    return HttpResponse(
+        obj.thumbnail(
+            size=int(request.POST['size']), 
+            caption=request.POST['caption']))

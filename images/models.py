@@ -36,11 +36,11 @@ class Image(models.Model):
     def img(self):
         return render_to_string('images/image.html', 
             {'image_url': self.url(), 'caption': self.caption})
-        #mark_safe("<img src='%s'/>" % self.url())
 
-    def thumbnail(self, size=200):
+    def thumbnail(self, size=200, caption=None):
+        if caption is None:
+            caption = self.caption
         return render_to_string('images/thumbnail.html',
-            {'image_url': self.url(), 'caption': self.caption, 
+            {'image_url': self.url(), 'caption': caption, 
              'thumbnail_url': self.thumbnail_url(size)})
-        #mark_safe("<img src='%s'/>" % self.thumbnail_url(size))
 

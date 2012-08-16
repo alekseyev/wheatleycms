@@ -37,26 +37,36 @@ function finish_upload(data, textStatus, jqXHR) {
 
 function show_image() {
     $('#image-modal-thumbnail').attr('src', image_data.thumbnail_url)
-    $('#image-modal-caption').html(image_data.caption)
+    $('#image-modal-caption').val(image_data.caption)
+    $('#image-modal-size').val(500)
     $('#image-modal').modal('show')
 }
 
 function insert_image() {
     var html = '<p><img src="' + image_data.url + '"><br>'
-    if (image_data.caption)
-        html += '<i>' + image_data.caption + '</i>'
+    if ($('#image-modal-caption').val())
+        html += '<i>' + $('#image-modal-caption').val() + '</i>'
     html += '</p>'
     wysihtml_editor.composer.commands.exec('insertHTML', html)
     $('#image-modal').modal('hide')
 }
 
 function insert_thumbnail() {
-    var html = '<p><a href="' + image_data.url + '"><img src="' + image_data.thumbnail_url + '"></a><br>'
-    if (image_data.caption)
-        html += '<i>' + image_data.caption + '</i>'
-    html += '</p>'
-    wysihtml_editor.composer.commands.exec('insertHTML', html)
-    $('#image-modal').modal('hide')
+    $.ajax({
+        url: '/images/ajax/thumbnail/',
+        data: {
+            pk: image_data.pk,
+            caption: $('#image-modal-caption').val(),
+            size: $('#image-modal-size').val()
+        },
+        dataType: 'html',
+        type: 'POST',
+        success: function(data, textStatus, jqXHR){
+            html = data
+            wysihtml_editor.composer.commands.exec('insertHTML', html)
+            $('#image-modal').modal('hide')
+        }
+    })
 }
 
 function show_gallery() {

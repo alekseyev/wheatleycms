@@ -6,4 +6,4 @@ class GoogleBackend(object):
         return get_serving_url(fileobj.file.blobstore_info)   
 
     def thumbnail_url(self, fileobj, size=200):
-        return get_serving_url(fileobj.file.blobstore_info, 200)
+        return get_serving_url(fileobj.file.blobstore_info, size)
