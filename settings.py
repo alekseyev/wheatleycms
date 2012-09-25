@@ -124,8 +124,10 @@ TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 if DEBUG: 
     STATIC_URL = '/devstatic/'
+    ADMIN_MEDIA_PREFIX = '/devstatic/admin/'
 else:
     STATIC_URL = '/static/'
+    ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'sitestatic')
 
@@ -138,8 +140,6 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), 'static'),
 )
-
-ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 ROOT_URLCONF = 'urls'
 
