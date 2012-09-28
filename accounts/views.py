@@ -1,12 +1,20 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.models import User
+
+from .forms import AccountCreationForm
 
 def login(request):
     if request.method == 'POST':
+        username = request.POST['username']
+        if username.find('@') > 0:
+            try: 
+                username = User.objects.get(email=username).username
+            except User.DoesNotExist:
+                return render(request, 'registration/login.html', {'incorrect_login': True})    
         user = authenticate(
-            username=request.POST['username'], 
+            username=username, 
             password=request.POST['password']
         )
         if user is not None and user.is_active:
@@ -21,7 +29,7 @@ def login(request):
         return render(request, 'registration/login.html')
 
 def register(request):
-    form = UserCreationForm(request.POST or None)
+    form = AccountCreationForm(request.POST or None)
     if form.is_valid():
         new_user = form.save()
         return redirect("/")
