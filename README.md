@@ -6,6 +6,8 @@ WheatleyCMS is a CMS solution for [django-nonrel](http://docs.django-nonrel.org)
 - [django-bootstrap](https://github.com/earle/django-bootstrap)
 - [django-filetransfers](https://bitbucket.org/wkornewald/django-filetransfers)
 
+You also need [sorl-thumbnail](https://github.com/sorl/sorl-thumbnail) on non-GAE setup.
+
 Note: WheatleyCMS uses django.contrib.staticfiles for static files management.
 
 # Getting started

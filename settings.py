@@ -12,6 +12,7 @@ except ImportError:
     has_djangoappengine = False
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
+    IMAGES_BACKEND = 'images.backends.sorlthumb.SorlThumbnailBackend'
 
     # Fall back to MongoDB if App Engine isn't used (note that other backends
     # including SQL should work, too)
@@ -85,7 +86,7 @@ if has_djangoappengine:
     # djangoappengine should come last, so it can override a few manage.py commands
     INSTALLED_APPS += ('djangoappengine',)
 else:
-    INSTALLED_APPS += ('django_mongodb_engine',)
+    INSTALLED_APPS += ('django_mongodb_engine', 'sorl.thumb')
 
 TEST_RUNNER = 'djangotoolbox.test.CapturingTestSuiteRunner'
 
@@ -125,9 +126,13 @@ TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 if DEBUG: 
     STATIC_URL = '/devstatic/'
     ADMIN_MEDIA_PREFIX = '/devstatic/admin/'
+    MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static', 'media')
+    MEDIA_URL = '/devstatic/media/'
 else:
     STATIC_URL = '/static/'
     ADMIN_MEDIA_PREFIX = '/static/admin/'
+    MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'sitestatic', 'media')
+    MEDIA_URL = '/static/media/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'sitestatic')
 
