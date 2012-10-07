@@ -8,6 +8,7 @@ $(function(){
         "html": true, 
         "link": true, 
         "image": true,
+        "useLineBreaks": false,
         parserRules: {
             tags: {
                 "b":  {},
